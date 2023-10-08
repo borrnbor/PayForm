@@ -1,8 +1,11 @@
 import { submitButton } from '../submitButton/submitButton';
 import './modalWindow.scss';
-import { chooseForm } from '../chooseForm/chooseForm';
+import { bankCard } from '../bankCard/bankCard';
 
 export function modalWindow(elem) {
+  elem.style.height = `${document.body.offsetHeight}px`;
+  elem.classList.add('activeModal');
+  elem.classList.remove('none');
   elem.innerHTML = `<div class="modalWindow">
     <div class="modalWindow_cardBlock">
       <div class="modalWindow_card">
@@ -51,6 +54,9 @@ export function modalWindow(elem) {
     </div>
   </div>`;
 
+  submitButton(document.querySelector('#modalCancelButton'));
+  submitButton(document.querySelector('#modalSubmitButton'));
+
   document.querySelector('#name').oninput = (e) => {
     document.querySelector('.addCard_name').innerHTML = e.target.value;
   };
@@ -59,21 +65,25 @@ export function modalWindow(elem) {
     document.querySelector('.addCard_expir').innerHTML = e.target.value;
   };
 
-  submitButton(document.querySelector('#modalCancelButton'));
-  submitButton(document.querySelector('#modalSubmitButton'));
+  document.querySelector('#modalWindowAddCard').onclick = (e) => {
+    if (
+      e.target == document.querySelector('#modalWindowAddCard') ||
+      e.target == document.querySelector('#modalCancelButton')
+    ) {
+      document.body.removeAttribute('style');
+      document.querySelector('#modalWindowAddCard').classList.add('none');
+    }
+  };
 
   document.querySelector('#modalSubmitButton').onclick = (e) => {
     let newCard = [{ default: false }];
     document.querySelectorAll('.modal_input').forEach((elem) => {
       newCard[0][elem.id] = elem.value;
     });
-    chooseForm(document.querySelector('#chooseForm'), newCard);
-    if (document.querySelector('#addPayMethod')) {
-      console.log('jy');
-    }
-    document.querySelector('#mainPage').classList.remove('none');
     document
-      .querySelector('#app')
-      .removeChild(document.querySelector('#modalWindowAddCard'));
+      .querySelector('#addPayMethod')
+      .insertAdjacentHTML('beforebegin', bankCard(newCard));
+    document.querySelector('#modalWindowAddCard').classList.add('none');
+    document.body.removeAttribute('style');
   };
 }

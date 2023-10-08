@@ -8,11 +8,7 @@ export function addPayMethod(elem) {
   </div>`;
 
   elem.onclick = () => {
-    document.querySelector('#mainPage').classList.add('none');
-    document.querySelector('#app').innerHTML += `
-    <div id='modalWindowAddCard' class='modalPage'></div>
-    `;
-
+    document.body.style.overflow = 'hidden';
     modalWindow(document.querySelector('#modalWindowAddCard'));
   };
 }

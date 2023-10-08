@@ -39,7 +39,7 @@ export function mainPage(elem) {
       expires: '09/27',
       default: false,
       number: '1234 5678 9102 8908',
-      name: 'visa',
+      name: 'PayPal',
     },
   ];
 

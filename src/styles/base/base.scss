@@ -2,9 +2,7 @@
 @import './vars.scss';
 
 .pay_methods {
-  width: 100vw;
   position: relative;
-  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,8 +10,7 @@
 }
 
 .screen {
-  position: absolute;
-  top: 25px;
+  margin-top: 25px;
   min-width: 300px;
   width: 600px;
   padding: 50px;
@@ -26,4 +23,9 @@
 .title {
   font-size: 36px;
   margin-bottom: 25px;
+}
+
+body {
+  width: auto;
+  min-height: 100vh;
 }
