@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist&display=swap');
+@import './vars.scss';
+
+.pay_methods {
+  width: 100vw;
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-main;
+}
+
+.screen {
+  position: absolute;
+  top: 25px;
+  min-width: 300px;
+  width: 600px;
+  padding: 50px;
+  background-color: $background;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
+  z-index: 0;
+}
+
+.title {
+  font-size: 36px;
+  margin-bottom: 25px;
+}

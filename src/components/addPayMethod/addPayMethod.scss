@@ -1,0 +1,12 @@
+@import './../../styles/base/vars.scss';
+
+.addBtn {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 20px;
+  align-items: center;
+
+  p {
+    font-size: 16px;
+  }
+}

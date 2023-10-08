@@ -1,0 +1,13 @@
+@import './vars.scss';
+
+.route {
+  font-size: 16px;
+  margin-bottom: 15px;
+  a {
+    color: $active;
+  }
+}
+
+#app {
+  position: relative;
+}
